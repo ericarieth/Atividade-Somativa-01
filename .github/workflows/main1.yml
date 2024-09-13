@@ -51,6 +51,6 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'cd /caminho/para/seu/projeto && git pull origin main && sudo systemctl restart seu-servico'
-git add .github/workflows/cd.yml
+git add .github/workflows/main1.yml
 git commit -m "Configura CD para deploy via SSH"
 git push origin main

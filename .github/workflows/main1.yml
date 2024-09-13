@@ -1,5 +1,4 @@
 name: Python CI/CD
-
 on:
   push:
     branches:
@@ -36,21 +35,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Isso garante que o deploy só ocorra se o build e os testes passarem
+    needs: build 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
-
-      - name: Deploy to Server via SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'cd /caminho/para/seu/projeto && git pull origin main && sudo systemctl restart seu-servico'
 git add .github/workflows/main1.yml
 git commit -m "Configura CD para deploy via SSH"
 git push origin main

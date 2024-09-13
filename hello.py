@@ -29,3 +29,4 @@ if __name__ == "__main__":
     nova_funcionalidade()
 git add hello.py
 git commit -m "Adiciona nova funcionalidade e configura workflows para CI e CD"
+git push origin nova-feature

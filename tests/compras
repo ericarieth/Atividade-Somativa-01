@@ -1,2 +1,2 @@
-include Carrinho
-include Produto
+include carrinho
+include produto

@@ -1,4 +1,4 @@
-open Produto
+open produto
 
 let total carrinho =
     let valores = List.map (fun produto -> produto.valor) carrinho in

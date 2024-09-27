@@ -1,1 +1,4 @@
+from produto import Produto
 
+def avaliar_produto(produto: produto) -> str:
+    """Avalia um produto com base em critérios de validação."""

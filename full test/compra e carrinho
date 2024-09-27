@@ -1,1 +1,21 @@
+# tests/test_carrinho.py
+
+from produto import Produto
+from carrinho import total_carrinho, adiciona_item
+
+def test_total_carrinho():
+    produto1 = Produto(id=1, nome="Produto 1", valor=50.00)
+    produto2 = Produto(id=2, nome="Produto 2", valor=30.00)
+    carrinho = [produto1, produto2]
+    
+    total = total_carrinho(carrinho)
+    assert total == 80.00
+
+def test_adiciona_item():
+    produto1 = Produto(id=1, nome="Produto 1", valor=50.00)
+    carrinho = []
+    
+    carrinho = adiciona_item(produto1, carrinho)
+    assert len(carrinho) == 1
+    assert carrinho[0].nome == "Produto 1"
 

@@ -1,5 +1,8 @@
-type produto = { 
-    id: int;
-    nome: string; 
-    valor: float 
-}
+class Produto:
+    def __init__(self, id: int, nome: str, valor: float):
+        self.id = id
+        self.nome = nome
+        self.valor = valor
+
+    def __repr__(self):
+        return f"Produto(id={self.id}, nome='{self.nome}', valor={self.valor})"

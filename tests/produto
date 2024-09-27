@@ -1,1 +1,5 @@
-
+type produto = { 
+    id: int;
+    nome: string; 
+    valor: float 
+}

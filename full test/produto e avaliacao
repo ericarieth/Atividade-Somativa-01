@@ -1,0 +1,31 @@
+# tests/test_produto.py
+
+from produto import Produto, avaliar_produto
+
+def test_criar_produto():
+    produto = Produto(id=1, nome="Produto Teste", valor=99.90)
+    
+    assert produto.id == 1
+    assert produto.nome == "Produto Teste"
+    assert produto.valor == 99.90
+
+def test_avaliar_produto_valido():
+    produto = Produto(id=1, nome="Produto Teste", valor=100.0)
+    resultado = avaliar_produto(produto)
+    assert resultado == "Produto avaliado com sucesso: Tudo OK!"
+
+def test_avaliar_produto_nome_invalido():
+    produto = Produto(id=2, nome="", valor=50.0)
+    resultado = avaliar_produto(produto)
+    assert resultado == "O produto deve ter um nome válido."
+
+def test_avaliar_produto_valor_invalido():
+    produto = Produto(id=3, nome="Produto Inválido", valor=-10.0)
+    resultado = avaliar_produto(produto)
+    assert resultado == "O valor do produto deve ser maior que zero."
+
+def test_avaliar_produto_id_invalido():
+    produto = Produto(id=-1, nome="Produto Inválido", valor=10.0)
+    resultado = avaliar_produto(produto)
+    assert resultado == "O ID do produto deve ser um número positivo."
+

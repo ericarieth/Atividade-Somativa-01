@@ -1,0 +1,35 @@
+name: CI Pipeline
+
+# Definindo em que eventos o workflow será acionado
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Definindo os jobs (tarefas) que serão executados
+jobs:
+  test:
+    # Nome do ambiente
+    runs-on: ubuntu-latest
+
+    # Passos do job
+    steps:
+    - name: Checando o repositório
+      uses: actions/checkout@v2
+
+    - name: Configurando o Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Instalando dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Executando testes
+      run: |
+        pytest

@@ -1,6 +1,12 @@
-open produto
 
-let total carrinho =
-    let valores = List.map (fun produto -> produto.valor) carrinho in
-    List.fold_left (+.) 0. valores;;
-let adiciona_item item carrinho = carrinho [item];;
+from produto import produto
+
+def total_carrinho(carrinho: list) -> float:
+    """Calcula o total do carrinho somando o valor de todos os produtos."""
+    valores = [produto.valor for produto in carrinho]
+    return sum(valores)
+
+def adiciona_item(item: Produto, carrinho: list) -> list:
+    """Adiciona um item ao carrinho."""
+    carrinho.append(item)
+    return carrinho

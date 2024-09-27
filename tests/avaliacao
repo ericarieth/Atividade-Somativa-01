@@ -1,0 +1,8 @@
+from produto import produto
+
+def test_criar_produto():
+    produto = produto(id=1, nome="Produto Teste", valor=99.90)
+    
+    assert produto.id == 1
+    assert produto.nome == "Produto Teste"
+    assert produto.valor == 99.90

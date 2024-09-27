@@ -1,3 +1,5 @@
+# produto.py
+
 class Produto:
     def __init__(self, id: int, nome: str, valor: float):
         self.id = id
@@ -6,3 +8,17 @@ class Produto:
 
     def __repr__(self):
         return f"Produto(id={self.id}, nome='{self.nome}', valor={self.valor})"
+
+def avaliar_produto(produto: Produto) -> str:
+    """Avalia um produto com base em critérios de validação."""
+    if not produto.nome:
+        return "O produto deve ter um nome válido."
+    
+    if produto.valor <= 0:
+        return "O valor do produto deve ser maior que zero."
+    
+    if produto.id <= 0:
+        return "O ID do produto deve ser um número positivo."
+    
+    return "Produto avaliado com sucesso: Tudo OK!"
+

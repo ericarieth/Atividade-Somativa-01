@@ -3,4 +3,4 @@ open Produto
 let total carrinho =
     let valores = List.map (fun produto -> produto.valor) carrinho in
     List.fold_left (+.) 0. valores;;
-let adiciona_item item carrinho = carrinho @ [item];;
+let adiciona_item item carrinho = carrinho [item];;

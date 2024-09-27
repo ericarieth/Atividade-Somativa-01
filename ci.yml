@@ -1,6 +1,5 @@
 name: CI Pipeline
 
-# Definindo em que eventos o workflow será acionado
 on:
   push:
     branches:
@@ -8,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
-# Definindo os jobs (tarefas) que serão executados
 jobs:
   test:
     # Nome do ambiente
